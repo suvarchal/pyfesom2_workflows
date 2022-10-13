@@ -50,7 +50,7 @@ jobs:
 
     - name: Checkout xarray version
       run: |
-        pythom -c "import xarray; print('xarray version:',xarray.__version__)"
+        python -c "import xarray; print('xarray version:',xarray.__version__)"
 
     - name: Install pyfesom2
       working-directory: pyfesom2
