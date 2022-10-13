@@ -30,6 +30,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        path: main
 
     - name: install conda environment
       uses: mamba-org/provision-with-micromamba@main #/v12
@@ -38,13 +40,17 @@ jobs:
         environment-name: pyfesom2
         cache-env: false
         cache-env-key: "${{runner.os}}-${{runner.arch}}-py${{env.PYTHON_VERSION}}-${{env.TODAY}}-${{hashFiles(env.CONDA_ENV_FILE)}}"
+
     - name: Checkout pyfesom2 
+      uses: actions/checkout@v3
+      with:
+        repository: FESOM/pyfesom2
+        path: pyfesom2
       run: |
-            git clone https://github.com/FESOM/pyfesom2 
-            cd pyfesom2 
             git checkout suvi_fix_github_workflow
 
     - name: Checkout git commit log 
+      working-directory: pyfesom2
       run: |
             git log
 
