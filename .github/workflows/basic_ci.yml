@@ -46,7 +46,11 @@ jobs:
 
     - name: Checkout git commit log 
       run: |
-            git log 
+            git log
+
+    - name: Checkout xarray version
+      run: |
+        pythom -c "import xarray; print('xarray version:',xarray.__version__)"
 
     - name: Install pyfesom2
       working-directory: pyfesom2
