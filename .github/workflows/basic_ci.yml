@@ -36,13 +36,17 @@ jobs:
       with:
         environment-file: ci/requirements-py37.yml
         environment-name: pyfesom2
-        cache-env: true
+        cache-env: false
         cache-env-key: "${{runner.os}}-${{runner.arch}}-py${{env.PYTHON_VERSION}}-${{env.TODAY}}-${{hashFiles(env.CONDA_ENV_FILE)}}"
     - name: Checkout pyfesom2 
       run: |
             git clone https://github.com/FESOM/pyfesom2 
             cd pyfesom2 
-            git checkout suvi_fix_github_workflow
+p           git checkout suvi_fix_github_workflow
+
+    - name: Checkout git commit log 
+      run: |
+            git log 
 
     - name: Install pyfesom2
       working-directory: pyfesom2
