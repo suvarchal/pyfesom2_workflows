@@ -42,7 +42,7 @@ jobs:
       run: |
             git clone https://github.com/FESOM/pyfesom2 
             cd pyfesom2 
-p           git checkout suvi_fix_github_workflow
+            git checkout suvi_fix_github_workflow
 
     - name: Checkout git commit log 
       run: |
