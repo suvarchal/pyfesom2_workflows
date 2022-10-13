@@ -41,7 +41,9 @@ jobs:
     - name: Checkout pyfesom2 
       run: |
             git clone https://github.com/FESOM/pyfesom2 
-    
+            cd pyfesom2 
+            git checkout suvi_fix_github_workflow
+
     - name: Install pyfesom2
       working-directory: pyfesom2
       run: |
