@@ -1,0 +1,29 @@
+name: pyfesom2
+channels:
+  - conda-forge
+dependencies:
+  - python<=3.9
+  - pandas
+  - numpy>=1.16
+  - netCDF4
+  - joblib
+  - pyresample
+  - seawater
+  - numba
+  - scipy
+  - cartopy
+  - matplotlib!=3.3.1
+  - shapely
+  - jupyter
+  - ipython
+  - pytest
+  - cmocean
+  - zarr>=2.8.3
+  - fsspec==2021.06.1
+  - requests
+  - aiohttp
+  - dask
+  - xarray
+  - pyproj
+  - pymap3d
+  - tqdm
