@@ -46,12 +46,11 @@ jobs:
       with:
         repository: FESOM/pyfesom2
         path: pyfesom2
-      run: |
-            git checkout suvi_fix_github_workflow
 
     - name: Checkout git commit log 
       working-directory: pyfesom2
       run: |
+            git checkout suvi_fix_github_workflow
             git log
 
     - name: Checkout xarray version
