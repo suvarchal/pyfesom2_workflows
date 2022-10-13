@@ -8,19 +8,25 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch: # allows you to trigger manually
+
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   setup:
-
-    runs-on: [ubuntu-latest, macos-latest, windows-latest]
+    name: setup-${{matrix.os}}
+    runs-on: ${{ matrix.os }} #, macos-latest, windows-latest]
     strategy:
       fail-fast: false
       matrix:
+        os: ["ubuntu-latest"]
         python-version: ["3.8", "3.9", "3.10"]
 
     steps:
     - uses: actions/checkout@v3
-
 
     - name: install conda environment
       uses: mamba-org/provision-with-micromamba@main #/v12
