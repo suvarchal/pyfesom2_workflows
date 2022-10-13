@@ -33,19 +33,21 @@ jobs:
       with:
         path: main
 
-    - name: install conda environment
-      uses: mamba-org/provision-with-micromamba@main #/v12
-      with:
-        environment-file: pyfesom2/ci/requirements-py37.yml
-        environment-name: pyfesom2
-        cache-env: false
-        cache-env-key: "${{runner.os}}-${{runner.arch}}-py${{env.PYTHON_VERSION}}-${{env.TODAY}}-${{hashFiles(env.CONDA_ENV_FILE)}}"
 
     - name: Checkout pyfesom2 
       uses: actions/checkout@v3
       with:
         repository: FESOM/pyfesom2
         path: pyfesom2
+
+    - name: install conda environment
+      working-directory: pyfesom2
+      uses: mamba-org/provision-with-micromamba@main #/v12
+      with:
+        environment-file: ci/requirements-py37.yml
+        environment-name: pyfesom2
+        cache-env: false
+        cache-env-key: "${{runner.os}}-${{runner.arch}}-py${{env.PYTHON_VERSION}}-${{env.TODAY}}-${{hashFiles(env.CONDA_ENV_FILE)}}"
 
     - name: Checkout git commit log 
       working-directory: pyfesom2
