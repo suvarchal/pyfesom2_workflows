@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   setup:
-    name: setup-${{matrix.os}}
+    name: setup-env-${{matrix.os}}-${{matrix.python-version}}
     runs-on: ${{ matrix.os }} #, macos-latest, windows-latest]
     strategy:
       fail-fast: false
