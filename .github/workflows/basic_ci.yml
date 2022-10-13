@@ -39,6 +39,7 @@ jobs:
       with:
         repository: FESOM/pyfesom2
         path: pyfesom2
+        fetch-depth: 0
 
     - name: install conda environment
       uses: mamba-org/provision-with-micromamba@main #/v12
