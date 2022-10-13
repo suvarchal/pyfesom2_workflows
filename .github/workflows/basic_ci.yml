@@ -46,7 +46,7 @@ jobs:
       with:
         environment-file: main/ci/requirements-py37.yml
         environment-name: pyfesom2
-        cache-env: false
+        cache-env: true
         cache-env-key: "${{runner.os}}-${{runner.arch}}-py${{env.PYTHON_VERSION}}-${{env.TODAY}}-${{hashFiles(env.CONDA_ENV_FILE)}}"
 
     - name: Checkout git commit log 
@@ -73,5 +73,5 @@ jobs:
     - name: Test pyfesom2
       working-directory: pyfesom2
       run: |
-            python -m pytest
+            python -m pytest tests/test_accessor.py
 
