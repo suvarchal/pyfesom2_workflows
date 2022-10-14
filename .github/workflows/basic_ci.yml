@@ -53,7 +53,7 @@ jobs:
     - name: Checkout git commit log 
       working-directory: pyfesom2
       run: |
-        #            git checkout suvi_fix_github_workflow
+            git checkout suvi_test_branch_workflow
             git log
 
     - name: Checkout xarray version
