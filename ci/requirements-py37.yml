@@ -25,7 +25,7 @@ dependencies:
   - requests
   - aiohttp
   - dask
-  - xarray
+  - xarray==v0.21.1
   - pyproj
   - pymap3d
   - tqdm
