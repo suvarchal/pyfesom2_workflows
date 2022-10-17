@@ -74,5 +74,5 @@ jobs:
     - name: Test pyfesom2
       working-directory: pyfesom2
       run: |
-            python -m pytest -n 4 tests/test_accessor.py
+            python -m pytest tests/test_accessor.py
 
